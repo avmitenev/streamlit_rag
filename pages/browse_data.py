@@ -52,7 +52,7 @@ def process_uploaded_file(uploaded_file, chain, ensemble_retriever, openai_api_k
     #     st.error("Error processing the file. Please check the logs.")
 
 
-openai_api_key = os.getenv('OPEN_API_KEY')
+openai_api_key = os.getenv('OPENAI_API_KEY')
 
 if not st.session_state.get('init', False):
     st.switch_page('streamlit_app.py')
