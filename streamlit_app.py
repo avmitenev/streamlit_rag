@@ -8,9 +8,9 @@ from pathlib import Path
 from streamlit.runtime.scriptrunner.script_run_context import get_script_run_ctx
 
 # # Override sqlite3 before importing langchain_chroma
-# __import__('pysqlite3')
-# import sys
-# sys.modules['sqlite3'] = sys.modules.pop('m') 
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 # from langchain_chroma import Chroma # Import Chroma from langchain_chroma
 
