@@ -35,8 +35,7 @@ def create_vector_db(texts, embeddings=None, collection_name="chroma"):
     # Select embeddings
     if not embeddings:
         openai_api_key = os.environ["OPENAI_API_KEY"]
-        # embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key, model="text-embedding-3-small")
-        embeddings = HuggingFaceEmbeddings()
+        embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key, model="text-embedding-3-small")
 
     proxy_embeddings = EmbeddingProxy(embeddings)
 
