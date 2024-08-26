@@ -31,12 +31,7 @@ def get_model(repo_id="ChatGPT", **kwargs):
         if repo_id == "ChatGPT":
             model_name = kwargs.get("model_name", "gpt-4o-mini")
             logging.info(f"Loading OpenAI model: {model_name}")
-            chat_model = ChatOpenAI(
-                openai_api_key = kwargs.get("openai_api_key", None),
-                base_url = "https://openrouter.ai/api/v1", 
-                model = "nousresearch/hermes-3-llama-3.1-405b",
-                temperature = 0
-            )
+            chat_model = ChatOpenAI(temperature=0, model=model_name, **kwargs)
         else:
             logging.info(f"Loading Hugging Face model: {repo_id}")
             huggingfacehub_api_token = kwargs.get("HUGGINGFACEHUB_API_TOKEN", None)
