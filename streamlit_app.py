@@ -74,8 +74,8 @@ def get_retriever(openai_api_key=None):
     """
     try:
         docs = load_data_files(data_dir="data")  
-        # embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key, model="text-embedding-3-small")
-        embeddings = HuggingFaceEmbeddings()
+        embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key, model="text-embedding-3-small")
+        # embeddings = HuggingFaceEmbeddings()
         return ensemble_retriever_from_docs(docs, embeddings=embeddings)
     except Exception as e:
         logging.error(f"Error creating retriever: {e}")
