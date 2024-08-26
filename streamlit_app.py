@@ -48,7 +48,7 @@ def show_ui(qa, prompt_to_user="How may I help you?"):
             css_styles="""
                 {
                     position: fixed;
-                    bottom: 60px;
+                    bottom: 70px;
                 }
                 """,
         ):
