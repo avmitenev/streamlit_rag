@@ -6,7 +6,6 @@ from langchain_community.embeddings import OpenAIEmbeddings, HuggingFaceEmbeddin
 from langchain_community.retrievers import BM25Retriever
 from pathlib import Path
 from streamlit.runtime.scriptrunner.script_run_context import get_script_run_ctx
-from streamlit_extras.stylable_container import stylable_container
 
 # # Override sqlite3 before importing langchain_chroma
 __import__('pysqlite3')
@@ -43,16 +42,7 @@ def show_ui(qa, prompt_to_user="How may I help you?"):
         with st.chat_message(message["role"]):
             st.write(message["content"])
 
-    with stylable_container(
-            key="chat_input",
-            css_styles="""
-                {
-                    position: fixed;
-                    bottom: 70px;
-                }
-                """,
-        ):
-        prompt = st.chat_input("Say something")
+    prompt = st.chat_input("Say something")
     if prompt:
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
@@ -195,17 +185,7 @@ def run():
         # Chat Interface
         st.subheader("Ask questions about Equity Bank's products and services:")
         show_ui(st.session_state['chain'], "How can I assist you today?")
-
-        with stylable_container(
-            key="reset_history",
-            css_styles="""
-                {
-                    position: fixed;
-                    bottom: 20px;
-                }
-                """,
-        ):
-            st.button("Reset history", on_click=reset)
+        st.button("Reset history", on_click=reset)
 
         # except Exception as e:
         #     logging.error(f"Error initializing application: {e}")
