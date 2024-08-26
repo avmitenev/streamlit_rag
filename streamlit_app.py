@@ -23,8 +23,7 @@ from memory import clean_session_history
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-st.set_page_config(page_title="Rx Example RAG")
-st.title("Rx Example RAG")
+st.set_page_config(page_title="Equity Bank's Assistant")
 
 def show_ui(qa, prompt_to_user="How may I help you?"):
     """
@@ -183,6 +182,9 @@ def run():
             st.session_state['init'] = True
 
         # Chat Interface
+        st.title("Equity Bank's Assistant")
+        st.caption("The bot trained on several public documents available on the bank's website in 3 days. \n"
+                   "The quality of responses can be improved if additional training documents are available.")
         st.subheader("Ask questions about Equity Bank's products and services:")
         show_ui(st.session_state['chain'], "How can I assist you today?")
         st.button("Reset history", on_click=reset)
