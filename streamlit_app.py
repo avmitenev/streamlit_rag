@@ -11,7 +11,7 @@ from streamlit_extras.stylable_container import stylable_container
 # # Override sqlite3 before importing langchain_chroma
 __import__('pysqlite3')
 import sys
-sys.modules['sqlite3'] = sys.modules.pop('m') 
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 # from langchain_chroma import Chroma # Import Chroma from langchain_chroma
 
