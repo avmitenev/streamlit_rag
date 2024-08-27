@@ -55,7 +55,7 @@ def process_uploaded_file(uploaded_file, chain, ensemble_retriever, openai_api_k
 openai_api_key = os.getenv('OPEN_API_KEY')
 
 if not st.session_state.get('init', False):
-    st.switch_page('streamlit_app.py')
+    st.switch_page('Financial_Advisor_App.py')
 
 # File Uploader
 with st.form("my-form", clear_on_submit=True):
