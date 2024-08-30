@@ -19,8 +19,7 @@ def ensemble_retriever_from_docs(docs, embeddings=None):
     vs_retriever = vs.as_retriever()
 
     bm25_retriever = BM25Retriever.from_texts([t.page_content for t in texts])
-
-    # tavily_retriever = TavilySearchAPIRetriever(k=3, include_domains=['https://ilibrary.ru/text/107'])
+    
     tavily_retriever = MyTavilySearchAPIRetriever(k=3, include_domains=['https://equitygroupholdings.com'])
 
     ensemble_retriever = EnsembleRetriever(
