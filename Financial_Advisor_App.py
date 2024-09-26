@@ -54,7 +54,7 @@ def show_ui(qa, prompt_to_user="How may I help you?"):
                 for i in range(retry_num):
                     try:
                         logging.info('Start processing')
-                        logging.info(f"Send request: {qa}")
+                        logging.info(f"Send request: {prompt}")
                         session_id = get_script_run_ctx().session_id
                         response = ask_question(qa, prompt, session_id)
                         logging.info('End processing')
